@@ -61,10 +61,10 @@ paths:
                           type: string
                           format: date-time
                           nullable: true
-                  @odata.count:
+                  "@odata.count":
                     type: integer
                     description: Total count of objects (if $count=true)
-                  @odata.nextLink:
+                  "@odata.nextLink":
                     type: string
                     description: Link to next page of results, if more results available
         '401':
