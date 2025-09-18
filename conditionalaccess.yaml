@@ -15,14 +15,15 @@ paths:
           name: ConsistencyLevel
           schema:
             type: string
-            enum: [ eventual ]
+            enum:
+              - eventual
           required: true
-          description: Required for advanced queries and $count on directory objects
+          description: Required for advanced queries and using $count on directory objects
         - in: query
           name: $count
           schema:
             type: boolean
-          description: Include count of objects
+          description: Include total count of objects
         - in: query
           name: $top
           schema:
@@ -59,9 +60,13 @@ paths:
                         modifiedDateTime:
                           type: string
                           format: date-time
+                          nullable: true
                   @odata.count:
                     type: integer
                     description: Total count of objects (if $count=true)
+                  @odata.nextLink:
+                    type: string
+                    description: Link to next page of results, if more results available
         '401':
           description: Unauthorized
         '403':
